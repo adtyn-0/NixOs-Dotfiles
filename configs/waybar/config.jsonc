@@ -1,0 +1,78 @@
+{
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "cpu",
+    "memory",
+    "battery",
+    "pulseaudio",
+    "tray"
+  ],
+
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "interval": 60,
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>"
+  },
+
+  "cpu": {
+    "interval": 2,
+    "format": "  {usage}%",
+    "tooltip": false
+  },
+
+  "memory": {
+    "format": " {percentage}%",
+    "tooltip": false
+  },
+
+  "battery": {
+    "interval": 30,
+    "format": "{capacity}% {icon}",
+    "format-icons": [
+      "󰁺",
+      "󰁼",
+      "󰁾",
+      "󰂀",
+      "󰁹"
+    ],
+    "format-charging": "{capacity}% ⚡",
+    "tooltip": false
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "",
+    "format-icons": [
+      "",
+      ""
+    ],
+    "tooltip": false
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": [1, 2, 3, 4, 5]
+    }
+  }
+}

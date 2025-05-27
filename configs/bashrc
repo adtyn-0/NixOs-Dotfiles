@@ -1,0 +1,44 @@
+
+# Alias and Exports
+alias codium='codium --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-compositing'
+export PATH="$HOME/bin:$PATH"
+alias brave='brave --force-device-scale-factor=1.5'
+
+
+# FastFetch Fix
+FASTFETCH_LOCKFILE="/tmp/.fastfetch_shown_$(whoami)"
+
+is_first_terminal() {
+    ps -u "$USER" -o tty=,comm= |
+    awk '$2 == "bash" && $1 ~ /^pts/' |
+    wc -l | grep -q '^1$'
+}
+
+if [ ! -f "$FASTFETCH_LOCKFILE" ] && is_first_terminal; then
+    fastfetch
+    touch "$FASTFETCH_LOCKFILE"
+fi
+
+cleanup_fastfetch_lock() {
+    local count
+    count=$(ps -u "$USER" -o tty=,comm= |
+            awk '$2 == "bash" && $1 ~ /^pts/' |
+            wc -l)
+    if [ "$count" -le 1 ]; then
+        rm -f "$FASTFETCH_LOCKFILE"
+    fi
+}
+
+trap cleanup_fastfetch_lock EXIT
+
+# Nix-Shell fix
+nix-shell() {
+  export NIXPKGS_ALLOW_UNFREE=1
+  command nix-shell "$@"
+}
+
+# Disown Fix
+runbg(){
+  setsid "$@" > /dev/null 2>&1 < /dev/null &
+}
+
