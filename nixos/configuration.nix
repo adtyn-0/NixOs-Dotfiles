@@ -82,6 +82,7 @@
   };
   programs.waybar.enable = true;
   # programs.nm-applet.enable = true;
+  services.hypridle.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -161,6 +162,7 @@
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
+    android-studio
     curl
     nix-search
     networkmanager
@@ -192,6 +194,9 @@
     grim
     wl-clipboard
     slurp
+    #hypridle
+    mako
+    libnotify
     hyprpaper
     xdg-desktop-portal
     xdg-desktop-portal-hyprland
@@ -283,7 +288,7 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 8000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
