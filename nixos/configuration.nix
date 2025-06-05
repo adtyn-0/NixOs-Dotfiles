@@ -1,16 +1,15 @@
-#Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-{
+{ config, pkgs, ... }: {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      # Custom modules
+      ./modules/packages.nix
+      ./modules/hyprland.nix
     ];
-  
+
   system.copySystemConfiguration = true;
-  
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -18,7 +17,7 @@
 
   # Blacklisted in default
   # Camera and Nvidia Open-source
-  boot.blacklistedKernelModules = [ "uvcvideo""nouveau" ];
+  boot.blacklistedKernelModules = [ "uvcvideo" "nouveau" ];
 
   # Graphics - Hybrid Setup (Intel + NVIDIA Offload)
   services.xserver.videoDrivers = [ "intel" "nvidia" ];
@@ -43,7 +42,6 @@
     SUBSYSTEM=="backlight", ACTION=="add", GROUP="video", MODE="0664"
   '';
 
-
   # Configure session to use offloading for X11 session
   # services.xserver.displayManager.sessionCommands = ''
   #   export __NV_PRIME_RENDER_OFFLOAD=1
@@ -51,7 +49,7 @@
   #   export __GLX_VENDOR_LIBRARY_NAME=nvidia
   #   export __VK_LAYER_NV_optimus=NVIDIA_only
   # '';
-  
+
   # Audio 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
@@ -62,39 +60,22 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
+    # jack.enable = true;
   };
 
   # Greeter
-  #services.greetd = {
-  #	enable = true;
-  #	settings = {
-  #	 default_session = {
-  #		command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-  #		user = "greeter";
-  #		};
-  #	 };	
+  # services.greetd = {
+  #   enable = true;
+  #   settings = {
+  #     default_session = {
+  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
+  #       user = "greeter";
+  #     };
+  #   };
   # };
 
-  #Hyprland
-  programs.hyprland = {
-    enable = true;
-  };
-  programs.waybar.enable = true;
-  # programs.nm-applet.enable = true;
-  services.hypridle.enable = true;
-
-  xdg.portal = {
-    enable = true;
-    config = {
-      common.default = "*";
-    };
-    extraPortals = [
-      pkgs.xdg-desktop-portal-hyprland
-    ];
-  };
-
   networking.hostName = "nixos"; # Define your hostname.
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -104,7 +85,7 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  #Enable Bluetooth
+  # Enable Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   hardware.bluetooth.settings = {
@@ -114,13 +95,11 @@
   };
   services.blueman.enable = true;
 
-
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_IN";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_IN";
     LC_IDENTIFICATION = "en_IN";
@@ -139,11 +118,10 @@
     variant = "";
   };
 
-  #Fonts
+  # Fonts
   fonts.packages = with pkgs; [ font-awesome udev-gothic-nf fira-code ];
 
-
-  #mozilla?
+  # mozilla?
   programs.firefox.enable = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -157,86 +135,11 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
-    android-studio
-    curl
-    nix-search
-    networkmanager
-    networkmanagerapplet
-    xfce.tumbler
-    #gnome-keyring
-    #libsecret
-    dbus
-    gsettings-desktop-schemas
-    blueman
-    fastfetch
-    fff
-    pandoc
-    libreoffice-qt
-    hunspell
-    xz
-    fzf
-    ffmpeg
-    mpv
-    spotify
-    kitty
-    gitFull
-    git-lfs
-    brave
-    vscodium-fhs
-    obsidian
-    brightnessctl
-    alsa-utils
-    grim
-    wl-clipboard
-    slurp
-    #hypridle
-    mako
-    libnotify
-    hyprpaper
-    xdg-desktop-portal
-    xdg-desktop-portal-hyprland
-    mongodb-compass
-    mongosh
-  # Python
-    python3
-    python312Packages.virtualenv
-    python312Packages.pip
-
-  # C/C++ & Build Tools
-    gcc
-    gdb
-    clang
-    cmake
-    ninja
-    pkg-config
-
-  # Java
-    openjdk
-  
   # Android
-    flutter
+  programs.adb.enable = true;
+  services.udev.packages = [ pkgs.android-udev-rules ];
 
-  # Node.js
-    nodejs
-
-  # Rust
-    rustc
-    cargo
-
-  # Go (optional)
-    go
-  ] ;
-
-  # Android
-    programs.adb.enable = true;
-    services.udev.packages = [ pkgs.android-udev-rules ];
-
-
+  # Neovim
   programs.neovim.enable = true;
 
   # File Manager
@@ -247,7 +150,7 @@
   ];
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
-  
+
   # Credential Manager
   # services.gnome.gnome-keyring.enable = true;
 
@@ -274,8 +177,6 @@
     QT_QPA_PLATFORM = "wayland;xcb";
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;
@@ -283,22 +184,12 @@
   # };
 
   # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 8000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
