@@ -43,6 +43,8 @@
     xdg-desktop-portal-hyprland
     mongodb-compass
     mongosh
+    bruno
+    bruno-cli
 
     # Python
     python3
