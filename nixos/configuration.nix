@@ -8,8 +8,11 @@
       ./modules/hyprland.nix
     ];
 
+  #NixOs Configurations
   system.copySystemConfiguration = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.optimise.automatic = true;
+  
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -21,7 +24,6 @@
 
   # Graphics - Hybrid Setup (Intel + NVIDIA Offload)
   services.xserver.videoDrivers = [ "intel" "nvidia" ];
-
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 

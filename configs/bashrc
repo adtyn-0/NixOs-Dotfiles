@@ -1,11 +1,7 @@
-
-# Alias and Exports
+#Alias and Exports
 alias codium='codium --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-compositing'
 export PATH="$HOME/bin:$PATH"
-# export PATH="$HOME/flutter-sdk-cache-fixed/bin:$PATH"
-
-
-
+export PATH="$HOME/flutter/bin:$PATH"
 
 # FastFetch Fix
 FASTFETCH_LOCKFILE="/tmp/.fastfetch_shown_$(whoami)"
@@ -44,6 +40,3 @@ runbg(){
   setsid "$@" > /dev/null 2>&1 < /dev/null &
 }
 
-
-export PATH="$HOME/flutter/bin:$PATH"
-export PATH="$HOME/flutter/bin:$PATH"

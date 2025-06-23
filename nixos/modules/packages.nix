@@ -2,49 +2,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    android-studio
-    qbittorrent-enhanced
-    curl
-    nix-search
-    networkmanager
-    networkmanagerapplet
-    xfce.tumbler
-    # gnome-keyring
-    # libsecret
-    dbus
-    gsettings-desktop-schemas
-    blueman
-    fastfetch
-    fff
-    pandoc
-    libreoffice-qt
-    hunspell
-    xz
-    fzf
-    ffmpeg
-    mpv
-    spotify
-    kitty
-    gitFull
-    git-lfs
-    brave
-    vscodium-fhs
-    obsidian
-    brightnessctl
-    alsa-utils
-    grim
-    wl-clipboard
-    slurp
-    # hypridle
-    mako
-    libnotify
-    hyprpaper
-    xdg-desktop-portal
-    xdg-desktop-portal-hyprland
-    mongodb-compass
-    mongosh
-    bruno
-    bruno-cli
+
+    # Development Tools & Languages
 
     # Python
     python3
@@ -63,6 +22,7 @@
     openjdk
 
     # Android
+    android-studio
     flutter
 
     # Node.js
@@ -74,5 +34,65 @@
 
     # Go
     go
+
+    # Utilities
+    curl
+    nix-search
+    fzf
+    fastfetch
+    fff
+    xz
+    brightnessctl
+    alsa-utils
+    grim
+    wl-clipboard
+    slurp
+    mako
+    libnotify
+
+    # System & Network
+    networkmanager
+    networkmanagerapplet
+    dbus
+    gsettings-desktop-schemas
+    blueman
+
+    # Desktop Integration
+    xfce.tumbler
+    xdg-desktop-portal
+    xdg-desktop-portal-hyprland
+    hyprpaper
+
+    # Apps
+    qbittorrent-enhanced
+    pandoc
+    libreoffice-qt
+    hunspell
+    ffmpeg
+    mpv
+    spotify
+    kitty
+    brave
+    vscodium-fhs
+    obsidian
+
+    # Git & Related
+    gitFull
+    git-lfs
+
+    # API & Database Tools
+    mongodb-compass
+    mongosh
+    bruno
+    bruno-cli
+
+    # GTK Support
+    gtk3
+    mesa-demos
+
+    # Optional (commented out)
+    # gnome-keyring
+    # libsecret
+    # hypridle
   ];
 }
