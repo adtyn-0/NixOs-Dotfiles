@@ -8,7 +8,7 @@
     #Lua stuff
     lua5_4_compat
     luarocks
-    
+
     # Python stuff
     python3
     python312Packages.virtualenv
@@ -27,7 +27,7 @@
 
     # Android stuff
     android-studio
-    flutter
+    #flutter
 
     # Node.js
     nodejs
