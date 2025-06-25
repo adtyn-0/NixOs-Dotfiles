@@ -3,9 +3,13 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
 
-    # Development Tools & Languages
 
-    # Python
+    # Development Tools & Languages
+    #Lua stuff
+    lua5_4_compat
+    luarocks
+    
+    # Python stuff
     python3
     python312Packages.virtualenv
     python312Packages.pip
@@ -18,10 +22,10 @@
     ninja
     pkg-config
 
-    # Java
+    # Java stuff
     openjdk
 
-    # Android
+    # Android stuff
     android-studio
     flutter
 
@@ -39,6 +43,8 @@
     curl
     nix-search
     fzf
+    ripgrep
+    fd
     fastfetch
     fff
     xz
