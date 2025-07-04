@@ -5,7 +5,8 @@
 
       # Custom modules
       ./modules/packages.nix
-      ./modules/hyprland.nix
+      #./modules/hyprland.nix
+      ./modules/kde.nix
     ];
 
   #NixOs Configurations
@@ -124,7 +125,7 @@
   fonts.packages = with pkgs; [ font-awesome udev-gothic-nf fira-code ];
 
   # mozilla?
-  programs.firefox.enable = false;
+  programs.firefox.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.adtyn = {
@@ -160,24 +161,24 @@
   services.dbus.enable = true;
 
   # Environment variables
-  environment.sessionVariables = {
-    XDG_SESSION_TYPE = "wayland";
-    XDG_CURRENT_DESKTOP = "Hyprland";
-    XDG_SESSION_DESKTOP = "Hyprland";
-    WLR_RENDERER = "vulkan";
-    WLR_NO_HARDWARE_CURSORS = "1";
-
-    GTK_USE_PORTAL = "1";
-    NIXOS_XDG_OPEN_USE_PORTAL = "1";
-    SDL_VIDEODRIVER = "wayland";
-    _JAVA_AWT_WM_NONREPARENTING = "1";
-    CLUTTER_BACKEND = "wayland";
-
-    NIXOS_OZONE_WL = "1";
-    MOZ_ENABLE_WAYLAND = "1";
-    ELECTRON_DISABLE_GPU = "true";
-    QT_QPA_PLATFORM = "wayland;xcb";
-  };
+  # environment.sessionVariables = {
+  # XDG_SESSION_TYPE = "wayland";
+  # XDG_CURRENT_DESKTOP = "Hyprland";
+  # XDG_SESSION_DESKTOP = "Hyprland";
+  # WLR_RENDERER = "vulkan";
+  # WLR_NO_HARDWARE_CURSORS = "1";
+  #
+  # GTK_USE_PORTAL = "1";
+  # NIXOS_XDG_OPEN_USE_PORTAL = "1";
+  # SDL_VIDEODRIVER = "wayland";
+  # _JAVA_AWT_WM_NONREPARENTING = "1";
+  # CLUTTER_BACKEND = "wayland";
+  #
+  # NIXOS_OZONE_WL = "1";
+  # MOZ_ENABLE_WAYLAND = "1";
+  # ELECTRON_DISABLE_GPU = "true";
+  # QT_QPA_PLATFORM = "wayland;xcb";
+  #};
 
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
@@ -189,7 +190,7 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8000 ];
+  networking.firewall.allowedTCPPorts = [ 8000 3000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # networking.firewall.enable = false;
 

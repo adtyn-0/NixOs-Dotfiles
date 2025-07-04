@@ -8,6 +8,7 @@
     #Lua stuff
     lua5_4_compat
     luarocks
+    lua-language-server
 
     # Python stuff
     python3
@@ -17,7 +18,7 @@
     # C/C++ & Build Tools
     gcc
     gdb
-    clang
+    libclang
     cmake
     ninja
     pkg-config
