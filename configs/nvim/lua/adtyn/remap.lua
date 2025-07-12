@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>p", '"+p', { desc = "Paste from clipboard" })
 vim.keymap.set("i", "<leader>p", '<C-r>+', { desc = "Paste in insert mode" })
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Safe paste in visual mode" })
 
-vim.keymap.set("n", "<leader>e", ":Ex<CR>" , {desc = "Go to Explorer" })
+vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>" , {desc = "Go to Explorer" })
 
 vim.keymap.set("i", "<C-H>", "<C-w>", { noremap = true, desc = "Ctrl+Backspace to delete word" })
 <<<<<<< HEAD
