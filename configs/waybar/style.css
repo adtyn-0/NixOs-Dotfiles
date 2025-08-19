@@ -1,53 +1,166 @@
+/* --- Global Styles --- */
 * {
-  border: none;
-  font-size: 14px;
-  font-family: "JetBrainsMono Nerd Font", "JetBrainsMono NF";
-  min-height: 25px;
+  font-family: 'SF Pro Text', 'Inter', 'Segoe UI, NotoSans Nerd Font', sans-serif;
+  font-size: 13px;
+  min-height: 0;
+  padding: 0;
 }
 
-window#waybar {
-  background: rgba(0, 0, 0, 0.3); /* semi-translucent */
-  color: white;
-  border-radius: 10px;
-  padding: 5px;
-}
-
-.modules-left,
-.modules-center,
-.modules-right {
+/* --- Waybar Container --- */
+#waybar {
   background: transparent;
-  margin: 2px 5px;
-  border-radius: 10px;
+  color: #c6d0f5;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* --- Left Modules (Individual Blocks) --- */
+#workspaces,
+#custom-uptime,
+#cpu {
+  background-color: #1a1b26;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  min-width: 0;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#workspaces {
+  padding: 2px;
+  margin-left: 7px;
+  margin-right: 5px;
+}
+
+#custom-uptime {
+  margin-right: 5px;
+  color: #babbf1;
+}
+
+#cpu {
+  color: #c6d0f5;
+}
+
+/* Hover Effects */
+#custom-uptime:hover,
+#cpu:hover {
+  background-color: rgb(41, 42, 53);
 }
 
 #workspaces button {
+  color: #babbf1;
+  border-radius: 5px;
+  padding: 0.3rem 0.6rem;
+  background: transparent;
+  transition: all 0.2s ease-in-out;
   border: none;
-  padding: 0 5px;
-  color: #aaa;
 }
 
 #workspaces button.active {
-  color: #ffffff;
+  color: #99d1db;
+  background-color: rgba(153, 209, 219, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(153, 209, 219, 0.2);
 }
 
-#clock,
-#cpu,
-#memory,
-#battery,
-#pulseaudio,
-#tray,
-#custom-wifi {
-  padding: 0 8px;
+#workspaces button:hover {
+  background: rgb(41, 42, 53);
+  color: #c6d0f5;
+}
+
+/* --- Center Module (Clock) --- */
+#clock {
+  background-color: #1a1b26;
+  color: #99d1db;
+  font-weight: 500;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
+  min-width: 0;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#clock:hover {
+  background-color: rgba(153, 209, 219, 0.1);
+  color: #43454d; /* soft grayish */
+}
+
+
+/* --- Right Modules (Seamless Bar) --- */
+#bluetooth,
+#wireplumber,
+#backlight,
+#network,
+#battery {
+  background-color: #1a1b26;
+  padding: 0.3rem 0.7rem;
+  margin: 5px 0;
+  border-radius: 0;
+  min-width: 0;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+#bluetooth:hover,
+#wireplumber:hover,
+#backlight:hover,
+#network:hover,
+#battery:hover {
+  background-color: rgb(41, 42, 53);
+}
+
+/* Rounded Edges for Right Bar */
+#bluetooth {
+  margin-left: 0;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  color: #888888;
+  font-size: 16px;
+}
+#battery {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-right: 7px;
+  color: #99d1db;
+}
+
+/* --- State Colors --- */
+#bluetooth.on {
+  color: #2196f3;
+}
+#bluetooth.connected {
+  color: #99d1db;
+}
+
+#wireplumber {
+  color: #c6d0f5;
+}
+#backlight {
+  color: #c6d0f5;
+}
+
+#network {
+  color: #c6d0f5;
+}
+#network.disconnected {
+  color: #e78284;
 }
 
 #battery.charging {
-  color: #26A65B;
+  color: #a6d189;
 }
-
 #battery.warning:not(.charging) {
-  color: #ffbe61;
+  color: #e78284;
 }
 
-#battery.critical:not(.charging) {
-  color: #f53c3c;
+/* --- Tooltip Styles --- */
+tooltip {
+  background-color: #1a1b26;
+  color: #dddddd;
+  padding: 5px 12px;
+  margin: 5px 0;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 12px;
 }

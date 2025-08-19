@@ -10,7 +10,4 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Safe paste in visual mode" 
 vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>" , {desc = "Go to Explorer" })
 
 vim.keymap.set("i", "<C-H>", "<C-w>", { noremap = true, desc = "Ctrl+Backspace to delete word" })
-<<<<<<< HEAD
 
-=======
->>>>>>> 463760b (added kde settings , able to switch around the configs)

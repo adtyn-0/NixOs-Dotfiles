@@ -51,6 +51,8 @@
     xz
     brightnessctl
     alsa-utils
+    pavucontrol
+    pulseaudio
     grim
     wl-clipboard
     slurp
@@ -69,6 +71,12 @@
     xdg-desktop-portal
     xdg-desktop-portal-hyprland
     hyprpaper
+    # xfce.thunar
+    nautilus
+    papirus-icon-theme
+    loupe
+    imv
+    
 
     # Apps
     qbittorrent-enhanced

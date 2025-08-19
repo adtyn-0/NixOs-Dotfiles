@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-return {
-    "mason-org/mason-lspconfig.nvim",
-    opts = {},
-    dependencies = {
-        { "mason-org/mason.nvim", opts = {} },
-        "neovim/nvim-lspconfig",
-    },
-}
-=======
-
 return {
   "mason-org/mason-lspconfig.nvim",
   dependencies = {
@@ -41,5 +30,3 @@ return {
   end,
 }
 
-
->>>>>>> 463760b (added kde settings , able to switch around the configs)

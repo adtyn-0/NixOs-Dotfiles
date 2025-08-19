@@ -1,5 +1,8 @@
 #Alias and Exports
 alias codium='codium --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-compositing'
+alias mongo='setsid mongodb-compass > /dev/null 2>&1 < /dev/null &'
+
+
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/flutter/bin:$PATH"
 

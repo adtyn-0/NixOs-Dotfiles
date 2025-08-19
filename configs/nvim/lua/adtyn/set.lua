@@ -9,4 +9,4 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
-vim.opt.incsearch = true -- incremental search
+vim.opt.incsearch = true --incremental search

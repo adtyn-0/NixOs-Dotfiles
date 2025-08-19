@@ -1,78 +1,108 @@
 {
   "layer": "top",
   "position": "top",
-  "reload_style_on_change": true,
+  "margin-bottom": -10,
+  "spacing": 0,
 
   "modules-left": [
-    "hyprland/workspaces"
+    "hyprland/workspaces",
+    "custom/uptime",
+    "cpu"
   ],
 
-  "modules-center": [
-    "clock"
-  ],
+  "modules-center": ["clock"],
 
   "modules-right": [
-    "cpu",
-    "memory",
-    "battery",
-    "pulseaudio",
-    "tray"
+    "bluetooth",
+    "network",
+    "wireplumber",
+    "backlight",
+    "battery"
   ],
 
-  "clock": {
-    "format": "{:%I:%M %p}",
-    "interval": 60,
-    "tooltip-format": "<big>{:%A, %d %B %Y}</big>"
-  },
-
-  "cpu": {
-    "interval": 2,
-    "format": "  {usage}%",
-    "tooltip": false
-  },
-
-  "memory": {
-    "format": " {percentage}%",
-    "tooltip": false
-  },
-
-  "battery": {
-    "interval": 30,
-    "format": "{capacity}% {icon}",
-    "format-icons": [
-      "󰁺",
-      "󰁼",
-      "󰁾",
-      "󰂀",
-      "󰁹"
-    ],
-    "format-charging": "{capacity}% ⚡",
-    "tooltip": false
-  },
-
-  "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": "",
-    "format-icons": [
-      "",
-      ""
-    ],
-    "tooltip": false
-  },
-
-  "tray": {
-    "icon-size": 16,
-    "spacing": 10
-  },
-
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "{name}: {icon}",
     "format-icons": {
       "active": "",
       "default": ""
-    },
-    "persistent-workspaces": {
-      "*": [1, 2, 3, 4, 5]
     }
+  },
+
+  "bluetooth": {
+    "format": "󰂲",
+    "format-on": "{icon}",
+    "format-off": "{icon}",
+    "format-connected": "{icon}",
+    "format-icons": {
+      "on": "󰂯",
+      "off": "󰂲",
+      "connected": "󰂱"
+    },
+    "on-click": "blueman-manager",
+    "tooltip-format-connected": "{device_enumerate}"
+  },
+
+  "clock": {
+    "timezone": "Asia/Kolkata",
+    "tooltip": false,
+    "format": "{:%H:%M:%S  -  %A, %d}",
+    "interval": 1
+  },
+
+  "network": {
+    "format-wifi": "󰤢",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰤠 ",
+    "interval": 5,
+    "tooltip-format": "{essid} ({signalStrength}%)",
+    "on-click": "nm-connection-editor"
+  },
+
+  "cpu": {
+    "interval": 1,
+    "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "on-click": "kitty -e htop"
+  },
+
+  // "custom/uptime": {
+  //   "format": "{}",
+  //   "format-icon": [""],
+  //   "tooltip": false,
+  //   "interval": 1600,
+  //   "exec": "$HOME/.config/waybar/scripts/uptime.sh"
+  // },
+
+  "backlight": {
+  "device": "intel_backlight",
+  "format": "{icon} {percent}%",
+  "format-icons": ["", "󰃜", "󰃛", "󰃞", "󰃝", "󰃟", "󰃠"],
+  "tooltip": false,
+  "on-click": "brightnessctl -d intel_backlight set 10%+",
+  "on-click-right": "brightnessctl -d intel_backlight set 10%-"
+}
+,
+
+  "wireplumber": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+
+  "battery": {
+    "interval": 2,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-full": "{icon}  {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["", "", "", "", ""]
   }
 }

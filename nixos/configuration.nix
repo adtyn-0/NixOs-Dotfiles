@@ -5,8 +5,8 @@
 
       # Custom modules
       ./modules/packages.nix
-      #./modules/hyprland.nix
-      ./modules/kde.nix
+      ./modules/hyprland.nix
+      #./modules/kde.nix
     ];
 
   #NixOs Configurations
@@ -122,10 +122,18 @@
   };
 
   # Fonts
-  fonts.packages = with pkgs; [ font-awesome udev-gothic-nf fira-code ];
+  fonts.packages = with pkgs; [
+  font-awesome
+  udev-gothic-nf
+  fira-code
+  inter
+  noto-fonts
+  noto-fonts-cjk-sans
+  noto-fonts-emoji
+];
 
   # mozilla?
-  programs.firefox.enable = true;
+  programs.firefox.enable = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.adtyn = {
@@ -146,13 +154,40 @@
   programs.neovim.enable = true;
 
   # File Manager
-  programs.thunar.enable = true;
-  programs.thunar.plugins = with pkgs.xfce; [
-    thunar-archive-plugin
-    thunar-volman
-  ];
+  # programs.thunar.enable = true;
+  # programs.thunar.plugins = with pkgs.xfce; [
+  #   thunar-archive-plugin
+  #   thunar-volman
+  # ];
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
+
+
+ xdg.portal.enable = true;
+xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+
+environment.etc."xdg/mimeapps.list".text = ''
+  [Default Applications]
+  image/jpeg=org.gnome.Loupe.desktop
+  image/png=org.gnome.Loupe.desktop
+  image/webp=org.gnome.Loupe.desktop
+  image/gif=org.gnome.Loupe.desktop
+  image/svg+xml=org.gnome.Loupe.desktop
+  image/tiff=org.gnome.Loupe.desktop
+  image/bmp=org.gnome.Loupe.desktop
+  image/x-ms-bmp=org.gnome.Loupe.desktop
+  image/avif=org.gnome.Loupe.desktop
+  image/heic=org.gnome.Loupe.desktop
+  image/vnd.microsoft.icon=org.gnome.Loupe.desktop
+  image/x-icon=org.gnome.Loupe.desktop
+  image/x-exr=org.gnome.Loupe.desktop
+  image/x-pnm=org.gnome.Loupe.desktop
+  image/x-tga=org.gnome.Loupe.desktop
+  image/psd=org.gnome.Loupe.desktop
+  image/x-dds=org.gnome.Loupe.desktop
+  image/x-qoi=org.gnome.Loupe.desktop
+  image/x-farbfeld=org.gnome.Loupe.desktop
+'';
 
   # Credential Manager
   # services.gnome.gnome-keyring.enable = true;
