@@ -9,5 +9,6 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Safe paste in visual mode" 
 
 vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>" , {desc = "Go to Explorer" })
 
+-- Keyboard shortcuts
 vim.keymap.set("i", "<C-H>", "<C-w>", { noremap = true, desc = "Ctrl+Backspace to delete word" })
-
+vim.keymap.set("n", "<C-a>","ggVG",{ noremap = true, desc = "Select All"})
