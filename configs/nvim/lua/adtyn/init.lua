@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.o.timeoutlen = 300
 require("adtyn.lazy_init")
 require("adtyn.remap")
 require("adtyn.set")
