@@ -10,3 +10,5 @@ vim.opt.expandtab = true
 vim.opt.smartindent = true
 
 vim.opt.incsearch = true --incremental search
+
+vim.opt.termguicolors = true

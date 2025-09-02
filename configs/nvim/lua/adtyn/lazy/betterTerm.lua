@@ -1,0 +1,33 @@
+
+return {
+  {
+    "CRAG666/betterTerm.nvim",
+    opts = {
+      position = "bot", -- "bot" | "top" | "left" | "right" | "float"
+      size = 20,
+    },
+    config = function(_, opts)
+      local betterTerm = require("betterTerm")
+      betterTerm.setup(opts)
+-- Toggle the first terminal (ID defaults to index_base, which is 0)
+      vim.keymap.set({ "n", "t" }, "<C-;>", function() betterTerm.open() end, { desc = "Toggle terminal" })
+      
+-- Open a specific terminal
+      vim.keymap.set({ "n", "t" }, "<C-/>", function() betterTerm.open(1) end, { desc = "Toggle terminal 1" })
+      
+-- Select a terminal to focus
+      vim.keymap.set("n", "<leader>tt", betterTerm.select, { desc = "Select terminal" })
+      
+-- Rename the current terminal
+      vim.keymap.set("n", "<leader>tr", betterTerm.rename, { desc = "Rename terminal" })
+      
+-- Toggle the tabs bar
+      vim.keymap.set("n", "<leader>tb", betterTerm.toggle_tabs, { desc = "Toggle terminal tabs" })
+
+-- Close the current terminal tab (like VS Code's close button)
+      vim.keymap.set({ "n", "t" }, "<C-q>", function()
+                     vim.api.nvim_buf_delete(0, { force = true })
+                           end, { desc = "Close terminal tab" })
+    end,
+  },
+}

@@ -45,6 +45,8 @@
     SUBSYSTEM=="backlight", ACTION=="add", GROUP="video", MODE="0664"
   '';
 
+  nixpkgs.config.cudaSupport = true;
+
   # Configure session to use offloading for X11 session
   # services.xserver.displayManager.sessionCommands = ''
   #   export __NV_PRIME_RENDER_OFFLOAD=1
@@ -76,6 +78,12 @@
   #     };
   #   };
   # };
+
+  programs.steam = {
+      enable = true;
+      remotePlay.openFirewall = true; # if you want Steam Remote Play
+      dedicatedServer.openFirewall = true; # if you want to host games
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
 

@@ -40,6 +40,10 @@
     # Go
     go
 
+    # Assembly
+    nasm
+    asm-lsp
+
     # Utilities
     curl
     nix-search
@@ -57,7 +61,8 @@
     wl-clipboard
     slurp
     mako
-    libnotify
+    
+
 
     # System & Network
     networkmanager
@@ -90,6 +95,7 @@
     brave
     vscodium-fhs
     obsidian
+    qemu_full
 
     # Git & Related
     gitFull
