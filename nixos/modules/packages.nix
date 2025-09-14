@@ -61,9 +61,15 @@
     wl-clipboard
     slurp
     mako
+    util-linux
+    wireguard-tools
     
-
-
+    # Mini Project
+     gnumake42
+     busybox
+     cpio
+     bc
+    
     # System & Network
     networkmanager
     networkmanagerapplet

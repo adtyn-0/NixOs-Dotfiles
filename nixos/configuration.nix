@@ -7,6 +7,9 @@
       ./modules/packages.nix
       ./modules/hyprland.nix
       #./modules/kde.nix
+
+      #WireGuard
+      #./modules/wiregaurd.nix
     ];
 
   #NixOs Configurations
@@ -68,21 +71,11 @@
     # jack.enable = true;
   };
 
-  # Greeter
-  # services.greetd = {
-  #   enable = true;
-  #   settings = {
-  #     default_session = {
-  #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --cmd sway";
-  #       user = "greeter";
-  #     };
-  #   };
-  # };
 
   programs.steam = {
       enable = true;
-      remotePlay.openFirewall = true; # if you want Steam Remote Play
-      dedicatedServer.openFirewall = true; # if you want to host games
+      remotePlay.openFirewall = true; 
+      dedicatedServer.openFirewall = true; 
   };
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -228,6 +221,9 @@ environment.etc."xdg/mimeapps.list".text = ''
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  
+  #CloudFlare settings
+  services.cloudflare-warp.enable = true;
 
   # List services that you want to enable:
   # services.openssh.enable = true;
