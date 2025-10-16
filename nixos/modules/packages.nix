@@ -21,7 +21,7 @@
     libclang
     cmake
     ninja
-    pkg-config
+    # pkg-config
 
     # Java stuff
     openjdk
@@ -66,9 +66,10 @@
     
     # Mini Project
      gnumake42
-     busybox
+    # busybox
      cpio
      bc
+    # ncurses
     
     # System & Network
     networkmanager
@@ -88,7 +89,6 @@
     loupe
     imv
     
-
     # Apps
     qbittorrent-enhanced
     pandoc

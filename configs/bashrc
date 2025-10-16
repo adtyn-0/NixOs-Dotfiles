@@ -1,8 +1,11 @@
-#Alias and Exports
+#### Alias and Exports ####
+# Alias
 alias codium='codium --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-compositing'
 alias mongo='setsid mongodb-compass > /dev/null 2>&1 < /dev/null &'
+alias archvm='runbg qemu-system-x86_64 -enable-kvm -cpu host -m 6G -smp 8 -drive file=$HOME/__/Projects/os/arch.img,if=virtio,format=qcow2 -cdrom $HOME/__/Projects/os/arch-linux.iso -boot order=d -device virtio-keyboard-pci -device virtio-mouse-pci -device virtio-gpu-pci &'
 
 
+# Exports
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/flutter/bin:$PATH"
 

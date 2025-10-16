@@ -8,14 +8,18 @@
       ./modules/hyprland.nix
       #./modules/kde.nix
 
-      #WireGuard
+      # WireGuard
       #./modules/wiregaurd.nix
     ];
 
-  #NixOs Configurations
+  # NixOs Configurations
   system.copySystemConfiguration = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.optimise.automatic = true;
+  
+  # CPU Frequency Auto Config (powerprofile)
+  # services.auto-cpufreq.enable = true
+
   
   # Bootloader.
   boot.loader.systemd-boot.enable = true;

@@ -1,36 +1,21 @@
 return {
-    "mason-org/mason-lspconfig.nvim",
-    dependencies = {
-      { "mason-org/mason.nvim", opts = {} },
-      "neovim/nvim-lspconfig",
-    },
-    opts = {
-        ensure_installed = { "pyright", "gopls","nil_ls", "rust_analyzer" }, 
-    },
-    config = function(_, opts)
-      local lspconfig = require("lspconfig")
-      local mason_lspconfig = require("mason-lspconfig")
+  "mason-org/mason-lspconfig.nvim",
+  dependencies = { { "mason-org/mason.nvim", opts = {} }, "neovim/nvim-lspconfig" },
+  opts = { ensure_installed = { "pyright","gopls","nil_ls","rust_analyzer","lua_ls","clangd" } },
+  config = function(_, opts)
+  local mason_lspconfig = require("mason-lspconfig")
+  mason_lspconfig.setup(opts)
+  local lspconfig = require("lspconfig")
+  local servers = {
+  clangd = { cmd = { "/run/current-system/sw/bin/clangd" } },
+  lua_ls = { cmd = { "/run/current-system/sw/bin/lua-language-server" } },
+  asm_lsp = { cmd = { "/run/current-system/sw/bin/asm-lsp" }, filetypes = { "asm","s" } },
+  }
+  for _, server in ipairs(opts.ensure_installed) do
+  local server_opts = servers[server] or {}
+  lspconfig[server].setup(server_opts)
+  end
+  end,
+}
 
-      mason_lspconfig.setup(opts)
-
-      -- Manual server setup
-       local servers = { "clangd", "pyright", "gopls", "lua_ls", "nil_ls" , "rust_analyzer", "asm_lsp" }
-  
-         for _, server in ipairs(servers) do
-                 local server_opts = {}
-  
-                       if server == "clangd" then
-                               server_opts.cmd = { "/run/current-system/sw/bin/clangd" }
-                                     elseif server == "lua_ls" then
-                                             server_opts.cmd = { "/run/current-system/sw/bin/lua-language-server" }
-                                                   elseif server == "asm_lsp" then
-                                                           server_opts.cmd = { "/run/current-system/sw/bin/asm-lsp" }
-                                                                   server_opts.filetypes = { "asm", "s" }
-                                                                         end
-  
-                                                                               lspconfig[server].setup(server_opts)
-                                                                                   end
-                                                                                     end,
-                                                                                     }
-  
 
