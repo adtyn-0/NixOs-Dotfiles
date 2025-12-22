@@ -2,8 +2,8 @@
 # Alias
 alias codium='codium --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-compositing'
 alias mongo='setsid mongodb-compass > /dev/null 2>&1 < /dev/null &'
-alias archvm='runbg qemu-system-x86_64 -enable-kvm -cpu host -m 6G -smp 8 -drive file=$HOME/__/Projects/os/arch.img,if=virtio,format=qcow2 -cdrom $HOME/__/Projects/os/arch-linux.iso -boot order=d -device virtio-keyboard-pci -device virtio-mouse-pci -device virtio-gpu-pci &'
-
+alias archvm='runbg qemu-system-x86_64 -enable-kvm -cpu host -m 6G -smp 8 -drive file=/run/media/adtyn/HP/os/arch/arch-linux-i.img,if=virtio,format=qcow2 -cdrom /run/media/adtyn/HP/os/arch/arch-linux.iso -boot order=d -device virtio-keyboard-pci -device virtio-mouse-pci -device virtio-gpu-pci &'
+alias mgba-qt='QT_QPA_PLATFORM=xcb mgba-qt'
 
 # Exports
 export PATH="$HOME/bin:$PATH"

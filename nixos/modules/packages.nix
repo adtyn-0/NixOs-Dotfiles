@@ -53,14 +53,10 @@
     fastfetch
     fff
     xz
+    p7zip
     brightnessctl
     alsa-utils
     pavucontrol
-    pulseaudio
-    grim
-    wl-clipboard
-    slurp
-    mako
     util-linux
     wireguard-tools
     
@@ -81,8 +77,6 @@
     # Desktop Integration
     xfce.tumbler
     xdg-desktop-portal
-    xdg-desktop-portal-hyprland
-    hyprpaper
     # xfce.thunar
     nautilus
     papirus-icon-theme
@@ -116,6 +110,10 @@
     # GTK Support
     gtk3
     mesa-demos
+
+    # Gaming
+    lutris
+    # mgba
 
     # Optional (commented out)
     # gnome-keyring

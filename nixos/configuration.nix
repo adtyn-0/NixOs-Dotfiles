@@ -6,7 +6,7 @@
       # Custom modules
       ./modules/packages.nix
       ./modules/hyprland.nix
-      #./modules/kde.nix
+      # ./modules/kde.nix
 
       # WireGuard
       #./modules/wiregaurd.nix
@@ -18,20 +18,33 @@
   nix.optimise.automatic = true;
   
   # CPU Frequency Auto Config (powerprofile)
-  # services.auto-cpufreq.enable = true
-
+  # services.auto-cpufreq.enable = true;
   
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.systemd-boot.configurationLimit = 2;
+  boot.loader = {
+  efi = {
+    canTouchEfiVariables = true;
+    efiSysMountPoint = "/boot";
+  };
+  grub = {
+    enable = true;
+    efiSupport = true;
+    device = "nodev";
+    configurationLimit = 2;
+    gfxmodeEfi = "1024x768x32";
+    # fontSize = 32;
+    gfxpayloadEfi = "keep";
+
+    # Required for Windows dual-boot discovery
+    useOSProber = true;
+  };
+};
+
 
   # Blacklisted in default
   # Camera and Nvidia Open-source
   boot.blacklistedKernelModules = [ "uvcvideo" "nouveau" ];
 
   # Graphics - Hybrid Setup (Intel + NVIDIA Offload)
-  services.xserver.videoDrivers = [ "intel" "nvidia" ];
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
@@ -54,14 +67,6 @@
 
   nixpkgs.config.cudaSupport = true;
 
-  # Configure session to use offloading for X11 session
-  # services.xserver.displayManager.sessionCommands = ''
-  #   export __NV_PRIME_RENDER_OFFLOAD=1
-  #   export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-  #   export __GLX_VENDOR_LIBRARY_NAME=nvidia
-  #   export __VK_LAYER_NV_optimus=NVIDIA_only
-  # '';
-
   # Audio 
   # rtkit is optional but recommended
   security.rtkit.enable = true;
@@ -74,6 +79,11 @@
     # If you want to use JACK applications, uncomment this
     # jack.enable = true;
   };
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  security.polkit.enable = true;
 
 
   programs.steam = {
@@ -120,12 +130,6 @@
     LC_TIME = "en_IN";
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
-
   # Fonts
   fonts.packages = with pkgs; [
   font-awesome
@@ -148,9 +152,6 @@
     packages = with pkgs; [];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
   # Android
   programs.adb.enable = true;
   services.udev.packages = [ pkgs.android-udev-rules ];
@@ -167,9 +168,6 @@
   services.gvfs.enable = true; # Mount, trash, and other functionalities
   services.tumbler.enable = true; # Thumbnail support for images
 
-
- xdg.portal.enable = true;
-xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 
 environment.etc."xdg/mimeapps.list".text = ''
   [Default Applications]
@@ -200,7 +198,7 @@ environment.etc."xdg/mimeapps.list".text = ''
   # IPC
   services.dbus.enable = true;
 
-  # Environment variables
+  # Environment variables (NOT NEEDED)
   # environment.sessionVariables = {
   # XDG_SESSION_TYPE = "wayland";
   # XDG_CURRENT_DESKTOP = "Hyprland";
