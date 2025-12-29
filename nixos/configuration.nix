@@ -5,8 +5,8 @@
 
       # Custom modules
       ./modules/packages.nix
-      ./modules/hyprland.nix
-      # ./modules/kde.nix
+      # ./modules/hyprland.nix
+      ./modules/kde.nix
 
       # WireGuard
       #./modules/wiregaurd.nix
@@ -131,15 +131,16 @@
   };
 
   # Fonts
-  fonts.packages = with pkgs; [
+fonts.packages = with pkgs; [
   font-awesome
   udev-gothic-nf
   fira-code
   inter
   noto-fonts
   noto-fonts-cjk-sans
-  noto-fonts-emoji
+  noto-fonts-color-emoji
 ];
+
 
   # mozilla?
   programs.firefox.enable = false;
@@ -154,7 +155,7 @@
 
   # Android
   programs.adb.enable = true;
-  services.udev.packages = [ pkgs.android-udev-rules ];
+  # services.udev.packages = [ pkgs.android-udev-rules ];
 
   # Neovim
   programs.neovim.enable = true;
