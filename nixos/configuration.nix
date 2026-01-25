@@ -7,6 +7,7 @@
       ./modules/packages.nix
       # ./modules/hyprland.nix
       ./modules/kde.nix
+      # ./modules/cosmic.nix
 
       # WireGuard
       #./modules/wiregaurd.nix
@@ -43,14 +44,26 @@
   # Blacklisted in default
   # Camera and Nvidia Open-source
   boot.blacklistedKernelModules = [ "uvcvideo" "nouveau" ];
+  
 
   # Graphics - Hybrid Setup (Intel + NVIDIA Offload)
+  services.xserver.videoDrivers = [ "nvidia" "modesetting" ];
+  
+  hardware.graphics = {
+  enable = true;
+  enable32Bit = true;
+};
+
+
+
+
+
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
-      intelBusId = "PCI:0:2:0";    # Replace with actual Intel GPU bus ID (from `lspci`)
-      nvidiaBusId = "PCI:1:0:0";   # Replace with actual NVIDIA GPU bus ID (from `lspci`)
+      intelBusId = "PCI:0:2:0";    # Intel GPU bus ID (from `lspci`)
+      nvidiaBusId = "PCI:1:0:0";   # NVIDIA GPU bus ID (from `lspci`)
       offload.enable = true;
       offload.enableOffloadCmd = true;
     };

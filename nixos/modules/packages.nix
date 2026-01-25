@@ -59,6 +59,9 @@
     pavucontrol
     util-linux
     wireguard-tools
+    ntfs3g
+    vulkan-tools
+    vulkan-loader
     
     # Mini Project
      gnumake42
@@ -82,6 +85,7 @@
     papirus-icon-theme
     loupe
     imv
+    mangohud
     
     # Apps
     qbittorrent-enhanced

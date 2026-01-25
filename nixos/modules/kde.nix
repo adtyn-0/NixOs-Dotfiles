@@ -33,8 +33,8 @@
         variant = "";
       };
 
-      # X11 video drivers (moved here from configuration.nix)
-      videoDrivers = [ "nvidia" "modesetting" ];
+      # # X11 video drivers (moved here from configuration.nix)
+      # videoDrivers = [ "nvidia" "modesetting" ];
     };
   };
 
