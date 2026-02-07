@@ -5,9 +5,10 @@
 
       # Custom modules
       ./modules/packages.nix
-      # ./modules/hyprland.nix
-      ./modules/kde.nix
+      ./modules/hyprland.nix
+      # ./modules/kde.nix
       # ./modules/cosmic.nix
+      # ./modules/niri.nix
 
       # WireGuard
       #./modules/wiregaurd.nix
@@ -19,7 +20,7 @@
   nix.optimise.automatic = true;
   
   # CPU Frequency Auto Config (powerprofile)
-  # services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.enable = true;
   
   boot.loader = {
   efi = {
@@ -55,9 +56,6 @@
 };
 
 
-
-
-
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
 
@@ -69,7 +67,7 @@
     };
 
     modesetting.enable = true;
-    powerManagement.enable = false;
+    powerManagement.enable = true;
     nvidiaSettings = true;
     open = false;
   };
@@ -206,8 +204,7 @@ environment.etc."xdg/mimeapps.list".text = ''
   image/x-farbfeld=org.gnome.Loupe.desktop
 '';
 
-  # Credential Manager
-  # services.gnome.gnome-keyring.enable = true;
+ 
 
   # IPC
   services.dbus.enable = true;

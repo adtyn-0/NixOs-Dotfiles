@@ -6,7 +6,8 @@
 
   # Required when launching Hyprland manually from TTY
   # (polkit, portals, authentication)
-  security.pam.services.hyprland = {};
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.hyprland.enableGnomeKeyring = true;
 
   # Waybar (status bar for Hyprland)
   programs.waybar.enable = true;
@@ -24,6 +25,10 @@
     slurp
     wl-clipboard
     mako
+
+    # secret keeper
+    gnome-keyring
+    libsecret
   ];
 
   # Optional: if you ever enable this later
