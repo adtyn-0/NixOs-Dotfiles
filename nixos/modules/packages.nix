@@ -81,7 +81,7 @@
     xfce.tumbler
     xdg-desktop-portal
     # xfce.thunar
-    nautilus
+    nemo
     papirus-icon-theme
     loupe
     imv

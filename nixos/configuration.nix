@@ -204,6 +204,9 @@ environment.etc."xdg/mimeapps.list".text = ''
   image/x-farbfeld=org.gnome.Loupe.desktop
 '';
 
+hardware.firmware = [ pkgs.sof-firmware ];
+
+
  
 
   # IPC
