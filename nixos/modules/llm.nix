@@ -8,12 +8,17 @@
   };
 
   # Llama.cpp configuration cause why not?
-  services.llama-cpp = {
-    enable = true;
-    package = pkgs.llama-cpp.override {
-      cudaSupport = true;
-    };
-  };
+  # serivces.llama-cpp = {
+  # enable = true;
+  # package = pkgs.llama-cpp;
+  # };
 
+  # Packages Cause apparently service doesn't work
+  environment.systemPackages = with pkgs; [
+    (llama-cpp.override {
+      cudaSupport = true;
+    })
+
+  ];
 
 }
