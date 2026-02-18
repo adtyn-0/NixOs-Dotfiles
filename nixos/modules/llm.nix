@@ -8,7 +8,7 @@
   };
 
   # Llama.cpp configuration cause why not?
-  serivces.llama-cpp = {
+  services.llama-cpp = {
     enable = true;
     package = pkgs.llama-cpp.override {
       cudaSupport = true;
