@@ -3,15 +3,20 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      # Custom modules
+      # Packages
       ./modules/packages.nix
+
+      # Display Managers
       ./modules/hyprland.nix
       # ./modules/kde.nix
       # ./modules/cosmic.nix
       # ./modules/niri.nix
-
+      
       # WireGuard
       #./modules/wiregaurd.nix
+
+      # LLM
+      ./modules/llm.nix
     ];
 
   # NixOs Configurations
