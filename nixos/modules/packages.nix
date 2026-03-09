@@ -85,7 +85,7 @@
     papirus-icon-theme
     loupe
     imv
-    mangohud
+
     
     # Apps
     qbittorrent-enhanced
@@ -118,6 +118,8 @@
     # Gaming
     lutris
     # mgba
+    mangohud
+    gamemode
 
     # Optional (commented out)
     # gnome-keyring

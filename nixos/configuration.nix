@@ -72,7 +72,10 @@
     };
 
     modesetting.enable = true;
-    powerManagement.enable = true;
+    powerManagement = {
+      enable = true;
+      finegrained = true;
+    };
     nvidiaSettings = true;
     open = false;
   };
@@ -104,6 +107,13 @@
 
   programs.steam = {
       enable = true;
+      package = pkgs.steam.override {
+        extraEnv = {
+          MANGOHUD = "1";
+          MANGOHUD_CONFIG = "read_cfg,no_display";
+          GAMEMODERUN = "1"; 
+      };  
+    };
       remotePlay.openFirewall = true; 
       dedicatedServer.openFirewall = true; 
   };
