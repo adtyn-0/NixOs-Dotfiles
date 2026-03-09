@@ -1,5 +1,5 @@
 require("adtyn")
 print("Welcome Back!")
 
-vim.cmd.colorscheme("catppuccin")
+-- vim.cmd.colorscheme("catppuccin")
 
