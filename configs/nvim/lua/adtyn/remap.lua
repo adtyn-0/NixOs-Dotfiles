@@ -12,15 +12,15 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeOpen<CR>" , {desc = "Go to Explorer" 
 -- Keyboard shortcuts
 vim.keymap.set("i", "<C-H>", "<C-w>", { noremap = true, desc = "Ctrl+Backspace to delete word" })
 vim.keymap.set("n", "<C-a>","ggVG",{ noremap = true, desc = "Select All"})
-
+-- vim.keymap.set()
 
 -- Clear all yank registers and system clipboard
 vim.keymap.set("n", "<leader>cc", function()
--- Clear unnamed, * and + registers
+---- Clear unnamed, * and + registers
      vim.fn.setreg('"', {})
      vim.fn.setreg('*', {})
      vim.fn.setreg('+', {})
--- Clear numbered registers "1 through "9
+---- Clear numbered registers "1 through "9
      for i = 1, 9 do
       vim.fn.setreg(tostring(i), {})
       end
