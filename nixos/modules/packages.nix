@@ -95,7 +95,8 @@
     ffmpeg
     mpv
     spotify
-    kitty
+    # kitty
+    ghostty
     brave
     vscodium-fhs
     obsidian
