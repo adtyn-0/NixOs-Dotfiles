@@ -5,7 +5,7 @@
   "spacing": 0,
 
   "modules-left": [
-    "niri/workspaces",
+    "hyprland/workspaces",
     "cpu"
   ],
 
@@ -19,8 +19,8 @@
     "battery"
   ],
 
-  "niri/workspaces": {
-    "format": "{value}: {icon}",
+  "hyprland/workspaces": {
+    "format": "{id}: {icon}",
     "format-icons": {
       "active": "",
       "default": ""

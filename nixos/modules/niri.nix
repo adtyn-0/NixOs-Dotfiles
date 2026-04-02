@@ -22,35 +22,44 @@
     extraPortals = with pkgs; [
       xdg-desktop-portal-wlr
       xdg-desktop-portal-gtk
+      gnome-keyring
     ];
+    config.niri = {
+      default = [ "gtk" ];
+      "org.freedesktop.impl.portal.Screenshot" = [ "wlr" ];
+      "org.freedesktop.impl.portal.ScreenCast" = [ "wlr" ];
+      "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
+    };
   };
 
   ## Greeter: greetd + tuigreet
-  services.greetd = {
-  enable = true;
-  settings = {
-    default_session = {
-      command = ''
-        ${pkgs.tuigreet}/bin/tuigreet \
-          --time \
-          --cmd "${pkgs.dbus}/bin/dbus-run-session ${pkgs.niri}/bin/niri"
-      '';
-    };
-  };
-};
+#  services.greetd = {
+#   enable = true;
+#   settings = {
+#     default_session = {
+#       command = ''
+#         ${pkgs.tuigreet}/bin/tuigreet \
+#           --time \
+#           --cmd "${pkgs.dbus}/bin/dbus-run-session ${pkgs.niri}/bin/niri"
+#       '';
+#     };
+#   };
+# }; 
+
+# For Now
+  services.greetd.enable = false;
 
 
   ## Runtime tools expected in a niri session
   environment.systemPackages = with pkgs; [
-    niri
     waybar
     mako
     wl-clipboard
     grim
     slurp
     wofi
-    tuigreet
     xwayland-satellite
+    xdg-desktop-portal-wlr
   ];
 
   ## Polkit + secrets
