@@ -7,17 +7,18 @@ style="$config_dir/style.css"
 desktop="${XDG_CURRENT_DESKTOP:-}"
 desktop_lc="$(printf '%s' "$desktop" | tr '[:upper:]' '[:lower:]')"
 
+use_hyprland_config=false
+
 if [[ "$desktop_lc" == *"hyprland"* ]] || [[ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]]; then
-  config="$config_dir/config.hyprland.jsonc"
-elif [[ "$desktop_lc" == *"niri"* ]] || [[ -n "${NIRI_SOCKET:-}" ]]; then
-  config="$config_dir/config.jsonc"
-else
+  use_hyprland_config=true
+elif [[ "$desktop_lc" != *"niri"* ]] && [[ -z "${NIRI_SOCKET:-}" ]] && pgrep -x Hyprland >/dev/null 2>&1; then
   # Fallback when session vars are missing during manual startup.
-  if pgrep -x Hyprland >/dev/null 2>&1; then
-    config="$config_dir/config.hyprland.jsonc"
-  else
-    config="$config_dir/config.jsonc"
-  fi
+  use_hyprland_config=true
+fi
+
+config="$config_dir/config.jsonc"
+if $use_hyprland_config; then
+  config="$config_dir/config.hyprland.jsonc"
 fi
 
 exec waybar -c "$config" -s "$style"

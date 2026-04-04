@@ -1,90 +1,95 @@
 /* --- Global Styles --- */
 * {
-  font-family: 'SF Pro Text', 'Inter', 'Segoe UI, NotoSans Nerd Font', sans-serif;
-  font-size: 13px;
-  min-height: 0;
-  padding: 0;
+    font-family:
+        "SF Pro Text", "Inter", "Segoe UI, NotoSans Nerd Font", sans-serif;
+    font-size: 13px;
+    min-height: 0;
+    padding: 0;
 }
 
 /* --- Waybar Container --- */
 #waybar {
-  background: transparent;
-  color: #e0e0e0; /* light gray */
-  margin: 0;
-  font-weight: 500;
+    background: transparent;
+    color: #e0e0e0; /* light gray */
+    margin: 0;
+    font-weight: 500;
 }
 
 /* --- Left Modules (Individual Blocks) --- */
 #workspaces,
 #custom-uptime,
 #cpu {
-  background-color: #111111; /* deep black */
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-  min-width: 0;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: #111111; /* deep black */
+    padding: 0.3rem 0.7rem;
+    margin: 5px 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    min-width: 0;
+    transition:
+        background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
 }
 
 #workspaces {
-  padding: 2px;
-  margin-left: 7px;
-  margin-right: 5px;
+    padding: 2px;
+    margin-left: 7px;
+    margin-right: 5px;
 }
 
 #custom-uptime {
-  margin-right: 5px;
-  color: #bbbbbb; /* mid-gray */
+    margin-right: 5px;
+    color: #bbbbbb; /* mid-gray */
 }
 
 #cpu {
-  color: #dddddd;
+    color: #3aaed8;
 }
 
 /* Hover Effects */
 #custom-uptime:hover,
 #cpu:hover {
-  background-color: #222222;
-  color: #ffffff;
+    background-color: #222222;
+    color: #3aaed8;
 }
 
 #workspaces button {
-  color: #aaaaaa;
-  border-radius: 5px;
-  padding: 0.3rem 0.6rem;
-  background: transparent;
-  transition: all 0.2s ease-in-out;
-  border: none;
+    color: #aaaaaa;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    background: transparent;
+    transition: all 0.2s ease-in-out;
+    border: none;
 }
 
 #workspaces button.active {
-  color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
 #workspaces button:hover {
-  background: #333333;
-  color: #ffffff;
+    background: #333333;
+    color: #ffffff;
 }
 
 /* --- Center Module (Clock) --- */
 #clock {
-  background-color: #111111;
-  color: #f5f5f5; /* bright white */
-  font-weight: 500;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
-  min-width: 0;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: #111111;
+    color: #f5f5f5; /* bright white */
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    margin: 5px 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+    min-width: 0;
+    transition:
+        background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
 }
 
 #clock:hover {
-  background-color: #222222;
-  color: #ffffff;
+    background-color: #222222;
+    color: #ffffff;
 }
 
 /* --- Right Modules (Seamless Bar) --- */
@@ -93,12 +98,14 @@
 #backlight,
 #network,
 #battery {
-  background-color: #111111;
-  padding: 0.3rem 0.7rem;
-  margin: 5px 0;
-  border-radius: 0;
-  min-width: 0;
-  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    background-color: #111111;
+    padding: 0.3rem 0.7rem;
+    margin: 5px 0;
+    border-radius: 0;
+    min-width: 0;
+    transition:
+        background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
 }
 
 #bluetooth:hover,
@@ -106,215 +113,56 @@
 #backlight:hover,
 #network:hover,
 #battery:hover {
-  background-color: #222222;
+    background-color: #222222;
 }
 
 /* Rounded Edges for Right Bar */
 #bluetooth {
-  margin-left: 0;
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-  color: #888888;
-  font-size: 16px;
-}
-#battery {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-  margin-right: 7px;
-  color: #f5f5f5;
-}
-
-/* --- State Colors (minimal accent) --- */
-#bluetooth.on {
-  color: #ffffff;
-}
-#bluetooth.connected {
-  color: #dddddd;
-}
-
-#wireplumber {
-  color: #cccccc;
-}
-#backlight {
-  color: #cccccc;
-}
-
-#network {
-  color: #cccccc;
-}
-#network.disconnected {
-  color: #ff5555; /* red accent */
-}
-
-#battery.charging {
-  color: #aaffaa; /* subtle green */
-}
-#battery.warning:not(.charging) {
-  color: #ff5555; /* red */
-}
-
-/* --- Tooltip Styles --- */
-tooltip {
-  background-color: #111111;
-  color: #f0f0f0;
-  padding: 5px 12px;
-  margin: 5px 0;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
-  font-size: 12px;
-}
-
-*/* --- Waybar Container --- */
-#waybar {
-  background: transparent;
-    color: #e0e0e0; /* light gray */
-    margin: 0;
-    font-weight: 500;
-  }
-
-  /* --- Left Modules (Individual Blocks) --- */
-  #workspaces,
-#custom-uptime,
-#cpu {
-  background-color: #111111; /* deep black */
-    padding: 0.3rem 0.7rem;
-    margin: 5px 0;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
-    min-width: 0;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  }
-
-  #workspaces {
-  padding: 2px;
-    margin-left: 7px;
-    margin-right: 5px;
-  }
-
-  #custom-uptime {
-  margin-right: 5px;
-    color: #bbbbbb; /* mid-gray */
-  }
-
-  #cpu {
-  color: #dddddd;
-  }
-
-  /* Hover Effects */
-  #custom-uptime:hover,
-#cpu:hover {
-  background-color: #222222;
-    color: #ffffff;
-  }
-
-  #workspaces button {
-  color: #aaaaaa;
-    border-radius: 5px;
-    padding: 0.3rem 0.6rem;
-    background: transparent;
-    transition: all 0.2s ease-in-out;
-    border: none;
-  }
-
-  #workspaces button.active {
-  color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-  }
-
-  #workspaces button:hover {
-  background: #333333;
-    color: #ffffff;
-  }
-
-  /* --- Center Module (Clock) --- */
-  #clock {
-  background-color: #111111;
-    color: #f5f5f5; /* bright white */
-    font-weight: 500;
-    padding: 0.3rem 0.7rem;
-    margin: 5px 0;
-    border-radius: 6px;
-    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
-    min-width: 0;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  }
-
-  #clock:hover {
-  background-color: #222222;
-    color: #ffffff;
-  }
-
-  /* --- Right Modules (Seamless Bar) --- */
-  #bluetooth,
-#wireplumber,
-#backlight,
-#network,
-#battery {
-  background-color: #111111;
-    padding: 0.3rem 0.7rem;
-    margin: 5px 0;
-    border-radius: 0;
-    min-width: 0;
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-  }
-
-  #bluetooth:hover,
-#wireplumber:hover,
-#backlight:hover,
-#network:hover,
-#battery:hover {
-  background-color: #222222;
-  }
-
-  /* Rounded Edges for Right Bar */
-  #bluetooth {
-  margin-left: 0;
+    margin-left: 0;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
     color: #888888;
     font-size: 16px;
-  }
-  #battery {
-  border-top-right-radius: 6px;
+}
+#battery {
+    border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     margin-right: 7px;
     color: #f5f5f5;
-  }
+}
 
-  /* --- State Colors (minimal accent) --- */
-  #bluetooth.on {
-  color: #ffffff;
-  }
-  #bluetooth.connected {
-  color: #dddddd;
-  }
+/* --- State Colors (minimal accent) --- */
+#bluetooth.on {
+    color: #ffffff;
+}
+#bluetooth.connected {
+    color: #dddddd;
+}
 
-  #wireplumber {
-  color: #cccccc;
-  }
-  #backlight {
-  color: #cccccc;
-  }
+#wireplumber {
+    color: #cccccc;
+}
+#backlight {
+    color: #cccccc;
+}
 
-  #network {
-  color: #cccccc;
-  }
-  #network.disconnected {
-  color: #ff5555; /* red accent */
-  }
+#network {
+    color: #cccccc;
+}
+#network.disconnected {
+    color: #ff5555; /* red accent */
+}
 
-  #battery.charging {
-  color: #aaffaa; /* subtle green */
-  }
-  #battery.warning:not(.charging) {
-  color: #ff5555; /* red */
-  }
+#battery.charging {
+    color: #aaffaa; /* subtle green */
+}
+#battery.warning:not(.charging) {
+    color: #ff5555; /* red */
+}
 
-  /* --- Tooltip Styles --- */
-  tooltip {
-  background-color: #111111;
+/* --- Tooltip Styles --- */
+tooltip {
+    background-color: #111111;
     color: #f0f0f0;
     padding: 5px 12px;
     margin: 5px 0;
@@ -322,5 +170,169 @@ tooltip {
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     font-size: 12px;
-  }
+}
 
+*/* --- Waybar Container --- */
+#waybar {
+    background: transparent;
+    color: #e0e0e0; /* light gray */
+    margin: 0;
+    font-weight: 500;
+}
+
+/* --- Left Modules (Individual Blocks) --- */
+#workspaces,
+#custom-uptime,
+#cpu {
+    background-color: #111111; /* deep black */
+    padding: 0.3rem 0.7rem;
+    margin: 5px 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    min-width: 0;
+    transition:
+        background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
+}
+
+#workspaces {
+    padding: 2px;
+    margin-left: 7px;
+    margin-right: 5px;
+}
+
+#custom-uptime {
+    margin-right: 5px;
+    color: #bbbbbb; /* mid-gray */
+}
+
+#cpu {
+    color: #dddddd;
+}
+
+/* Hover Effects */
+#custom-uptime:hover,
+#cpu:hover {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+#workspaces button {
+    color: #aaaaaa;
+    border-radius: 5px;
+    padding: 0.3rem 0.6rem;
+    background: transparent;
+    transition: all 0.2s ease-in-out;
+    border: none;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+#workspaces button:hover {
+    background: #333333;
+    color: #ffffff;
+}
+
+/* --- Center Module (Clock) --- */
+#clock {
+    background-color: #111111;
+    color: #f5f5f5; /* bright white */
+    font-weight: 500;
+    padding: 0.3rem 0.7rem;
+    margin: 5px 0;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+    min-width: 0;
+    transition:
+        background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
+}
+
+#clock:hover {
+    background-color: #222222;
+    color: #ffffff;
+}
+
+/* --- Right Modules (Seamless Bar) --- */
+#bluetooth,
+#wireplumber,
+#backlight,
+#network,
+#battery {
+    background-color: #111111;
+    padding: 0.3rem 0.7rem;
+    margin: 5px 0;
+    border-radius: 0;
+    min-width: 0;
+    transition:
+        background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
+}
+
+#bluetooth:hover,
+#wireplumber:hover,
+#backlight:hover,
+#network:hover,
+#battery:hover {
+    background-color: #222222;
+}
+
+/* Rounded Edges for Right Bar */
+#bluetooth {
+    margin-left: 0;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    color: #888888;
+    font-size: 16px;
+}
+#battery {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin-right: 7px;
+    color: #f5f5f5;
+}
+
+/* --- State Colors (minimal accent) --- */
+#bluetooth.on {
+    color: #ffffff;
+}
+#bluetooth.connected {
+    color: #dddddd;
+}
+
+#wireplumber {
+    color: #cccccc;
+}
+#backlight {
+    color: #cccccc;
+}
+
+#network {
+    color: #cccccc;
+}
+#network.disconnected {
+    color: #ff5555; /* red accent */
+}
+
+#battery.charging {
+    color: #aaffaa; /* subtle green */
+}
+#battery.warning:not(.charging) {
+    color: #ff5555; /* red */
+}
+
+/* --- Tooltip Styles --- */
+tooltip {
+    background-color: #111111;
+    color: #f0f0f0;
+    padding: 5px 12px;
+    margin: 5px 0;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+}

@@ -101,6 +101,7 @@
     vscodium-fhs
     obsidian
     qemu_full
+    zed-editor-fhs
 
     # Git & Related
     gitFull

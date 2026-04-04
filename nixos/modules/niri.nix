@@ -58,6 +58,7 @@
     grim
     slurp
     wofi
+    swaybg
     xwayland-satellite
     xdg-desktop-portal-wlr
   ];
