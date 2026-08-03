@@ -28,6 +28,7 @@
 
     # Android stuff
     android-studio
+    android-tools
     #flutter
 
     # Node.js
@@ -62,14 +63,14 @@
     ntfs3g
     vulkan-tools
     vulkan-loader
-    
+
     # Mini Project
      gnumake42
     # busybox
      cpio
      bc
     # ncurses
-    
+
     # System & Network
     networkmanager
     networkmanagerapplet
@@ -86,7 +87,7 @@
     loupe
     imv
 
-    
+
     # Apps
     qbittorrent-enhanced
     pandoc
@@ -98,7 +99,6 @@
     # kitty
     ghostty
     brave
-    vscodium-fhs
     obsidian
     qemu_full
     zed-editor-fhs

@@ -9,9 +9,9 @@
       # Display Managers
       # ./modules/hyprland.nix
       # ./modules/kde.nix
-      # ./modules/cosmic.nix
-       ./modules/niri.nix
-      
+       ./modules/cosmic.nix
+      # ./modules/niri.nix
+
       # WireGuard
       #./modules/wiregaurd.nix
 
@@ -23,10 +23,10 @@
   system.copySystemConfiguration = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.optimise.automatic = true;
-  
+
   # CPU Frequency Auto Config (powerprofile)
-  services.auto-cpufreq.enable = true;
-  
+  # services.auto-cpufreq.enable = true;
+
   boot.loader = {
   efi = {
     canTouchEfiVariables = true;
@@ -50,11 +50,11 @@
   # Blacklisted in default
   # Camera and Nvidia Open-source
   boot.blacklistedKernelModules = [ "uvcvideo" "nouveau" ];
-  
+
 
   # Graphics - Hybrid Setup (Intel + NVIDIA Offload)
   services.xserver.videoDrivers = [ "nvidia" "modesetting" ];
-  
+
   hardware.graphics = {
   enable = true;
   enable32Bit = true;
@@ -86,7 +86,7 @@
 
   nixpkgs.config.cudaSupport = true;
 
-  # Audio 
+  # Audio
   # rtkit is optional but recommended
   security.rtkit.enable = true;
   services.pipewire = {
@@ -111,11 +111,11 @@
         extraEnv = {
           MANGOHUD = "1";
           MANGOHUD_CONFIG = "read_cfg,no_display";
-          GAMEMODERUN = "1"; 
-      };  
+          GAMEMODERUN = "1";
+      };
     };
-      remotePlay.openFirewall = true; 
-      dedicatedServer.openFirewall = true; 
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
   };
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -180,11 +180,14 @@ fonts.packages = with pkgs; [
   };
 
   # Android
-  programs.adb.enable = true;
+  # programs.adb.enable = true; ## 26.05 made it redundant
   # services.udev.packages = [ pkgs.android-udev-rules ];
 
   # Neovim
-  programs.neovim.enable = true;
+  # programs.neovim.enable = true;
+
+  #Vim (Yeah you read right, VIM)
+  programs.vim.enable = true;
 
   # File Manager
   # programs.thunar.enable = true;
@@ -222,7 +225,7 @@ environment.etc."xdg/mimeapps.list".text = ''
 hardware.firmware = [ pkgs.sof-firmware ];
 
 
- 
+
 
   # IPC
   services.dbus.enable = true;
@@ -252,7 +255,7 @@ hardware.firmware = [ pkgs.sof-firmware ];
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  
+
   #CloudFlare settings
   services.cloudflare-warp.enable = true;
 

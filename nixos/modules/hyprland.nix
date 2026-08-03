@@ -25,7 +25,7 @@
     slurp
     wl-clipboard
     mako
-
+    wofi
     # secret keeper
     gnome-keyring
     libsecret
