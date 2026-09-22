@@ -1,0 +1,73 @@
+/* Mirrors the Waybar palette: deep black surfaces, neutral grays, blue accent. */
+* {
+  font-family: "SF Pro Text", "Inter", "Segoe UI", "Noto Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+window {
+  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background-color: #111111;
+  color: #e0e0e0;
+}
+
+#outer-box {
+  margin: 0;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #111111;
+}
+
+#input {
+  margin: 0 0 8px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  background-color: #222222;
+  color: #e0e0e0;
+  caret-color: #3aaed8;
+}
+
+#input:focus {
+  border-color: #3aaed8;
+  background-color: #222222;
+}
+
+#scroll,
+#inner-box {
+  margin: 0;
+  border: none;
+  background-color: transparent;
+}
+
+#entry {
+  margin: 2px 0;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background-color: transparent;
+}
+
+#entry:hover {
+  background-color: #222222;
+}
+
+#entry:selected {
+  border-color: rgba(255, 255, 255, 0.2);
+  background-color: #333333;
+}
+
+#img {
+  margin-right: 12px;
+}
+
+#text {
+  color: #e0e0e0;
+}
+
+#text:selected {
+  color: #ffffff;
+}

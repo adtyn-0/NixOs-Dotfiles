@@ -29,6 +29,7 @@
     # secret keeper
     gnome-keyring
     libsecret
+    wofi
   ];
 
   # Optional: if you ever enable this later

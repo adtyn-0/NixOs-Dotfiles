@@ -47,3 +47,8 @@ nix-shell() {
 runbg(){
   setsid "$@" > /dev/null 2>&1 < /dev/null &
 }
+
+# CAP inheritance fix (Hyprland mostly)
+runclean(){
+  setsid setpriv --ambient-caps=-all --inh-caps=-all "$@" > /dev/null 2>&1 < /dev/null &
+}

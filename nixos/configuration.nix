@@ -7,10 +7,11 @@
       ./modules/packages.nix
 
       # Display Managers
-      # ./modules/hyprland.nix
+       ./modules/hyprland.nix
       # ./modules/kde.nix
-       ./modules/cosmic.nix
+      # ./modules/cosmic.nix
       # ./modules/niri.nix
+      # ./modules/sway.nix
 
       # WireGuard
       #./modules/wiregaurd.nix

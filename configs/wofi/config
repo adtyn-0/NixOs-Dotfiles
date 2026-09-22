@@ -1,0 +1,22 @@
+# Application launcher
+show=drun
+
+# Keep the launcher compact and predictable on wide displays.
+width=720
+lines=8
+dynamic_lines=true
+location=center
+
+# DRun presentation
+allow_images=true
+image_size=30
+no_actions=true
+hide_scroll=true
+
+# Search behavior
+matching=fuzzy
+insensitive=true
+prompt=Search applications
+
+# Match the desktop's dark appearance.
+gtk_dark=true
