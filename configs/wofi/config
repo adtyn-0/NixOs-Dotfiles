@@ -5,7 +5,7 @@ show=drun
 width=720
 lines=8
 dynamic_lines=true
-location=center
+location=centre
 
 # DRun presentation
 allow_images=true
